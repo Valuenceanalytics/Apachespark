@@ -1,0 +1,37 @@
+let’s start by checking and installing java and scala.
+$ scala -version
+$ java –version
+These commands should print you the versions if scala and java is already installed else you can go to installing these by using following commands. 
+$ sudo apt-get update
+$ sudo apt-get install oracle-java8-installer
+$ wget http://www.scala-lang.org/files/archive/scala-2.10.4.tgz
+$ sudo mkdir /usr/local/src/scala
+$ sudo tar xvf scala-2.10.4.tgz -C /usr/local/scala/
+You can again check by using –version commands if java and scala is installed properly which will display –
+Scala code runner version 2.10.4 -- Copyright 2002-2013, LAMP/EPFL and for java it should display
+java version "1.8.0_101" 
+Java(TM) SE Runtime Environment (build 1.8.0_101-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 25.101-b14, mixed mode) 
+And update the .bashrc file by adding these lines at the end. 
+export SCALA_HOME=/usr/local/scala/scala-2.10.4
+export PATH=$SCALA_HOME/bin:$PATH
+And restart bashrc by using this command 
+$ . .bashrc
+Installing Spark
+First Download Spark from https://spark.apache.org/downloads.html using these options
+Spark Realease : 2.0.0
+Package Type: prebuilt with Hadoop 2.7 and Direct download.
+
+Now, got to $HOME/Downloads and use following command to extract the spark tar file and move to the given location.
+$ tar xvf spark-1.3.1-bin-hadoop2.6.tgz
+$ cd $HOME/Downloads/ 
+$ mv spark-2.0.0-bin-hadoop2.7 /usr/local/spark
+Add the following line to ~/.bashrc file. It means adding the location, where the spark software file are located to the PATH variable.
+export SPARK_HOME=/usr/local/spark
+export PATH =$SPARK_HOME/bin:$PATH
+Again restart the environment .bashrc by using these commands 
+source ~/.bashrc or
+. .bashrc
+Now you can start spark-shell by using these commands 
+$spark-shell  	for starting scala API
+$ pyspark 		for starting Python API
